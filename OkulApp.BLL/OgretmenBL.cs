@@ -16,10 +16,9 @@ namespace OkulApp.BLL
             {
                     new SqlParameter("@Ad",ogretmen.OgretmenAdi),
                     new SqlParameter("@Soyad",ogretmen.OgretmenSoyadi),
-                    new SqlParameter("@Tc",ogretmen.OgretmenTc),
-                    new SqlParameter("@Id",ogretmen.OgretmenId)
+                    new SqlParameter("@Tc",ogretmen.OgretmenTc)
             };
-            return helper.ExecuteNonQuery("Insert into tblOgretmenler Values (@Tc,@Ad,@Soyad)", p) > 0;
+            return helper.ExecuteNonQuery("Insert into tblOgretmenler Values (@Ad,@Soyad,@Tc)", p) > 0;
         }
         public Ogretmen OgretmenBul(string Tc)
         {
@@ -27,16 +26,15 @@ namespace OkulApp.BLL
             {
                 var hlp = new Helper();
                 SqlParameter[] p = { new SqlParameter("@Tc", Tc) };
-                var dr = hlp.ExecuteReader("Select Ad,Soyad,Tc,Id from tblOgretmenler where OgretmenTc=@Tc", p);
+                var dr = hlp.ExecuteReader("Select OgretmenId,OgretmenAdi,OgretmenSoyadi,OgretmenTc from tblOgretmenler where OgretmenTc=@Tc", p);
                 Ogretmen ogr = null;
                 if (dr.Read())
                 {
                     ogr = new Ogretmen();
-                    ogr.OgretmenAdi = dr["Ad"].ToString();
-                    ogr.OgretmenSoyadi = dr["Soyad"].ToString();
-                    ogr.OgretmenId = dr["Id"].ToString();
-                    ogr.OgretmenTc = dr["Tc"].ToString();
-
+                    ogr.OgretmenId = dr["OgretmenId"].ToString();
+                    ogr.OgretmenAdi = dr["OgretmenAdi"].ToString();
+                    ogr.OgretmenSoyadi = dr["OgretmenSoyadi"].ToString();
+                    ogr.OgretmenTc = dr["OgretmenTc"].ToString();
                 }
                 dr.Close();
                 return ogr;
@@ -56,36 +54,32 @@ namespace OkulApp.BLL
                 var hlp = new Helper();
                 var p = new SqlParameter[] {
                    new SqlParameter("@Tc", Tc)
-                 };
-                return hlp.ExecuteNonQuery("DELETE FROM tblOgretmenler WHERE Tc = @Tc", p) > 0;
+                };
+                return hlp.ExecuteNonQuery("DELETE FROM tblOgretmenler WHERE OgretmenTc = @Tc", p) > 0;
             }
-
             catch (Exception ex)
             {
-                throw new Exception("UYARI! Hata: " + ex.Message, ex);
-            }
-            finally
-            {
+                throw new Exception("Hata: " + ex.Message, ex);
             }
         }
-
-
 
         public bool OgretmenGuncelle(Ogretmen ogr)
         {
             try
             {
-                SqlParameter[] p = { new SqlParameter("@Ad",ogr.OgretmenAdi),
+                SqlParameter[] p =
+                {
+                new SqlParameter("@Ad",ogr.OgretmenAdi),
                 new SqlParameter("@Soyad", ogr.OgretmenSoyadi),
-                new SqlParameter("@Id",ogr.OgretmenId),
-                new SqlParameter("@Tc",ogr.OgretmenTc)};
+                new SqlParameter("@Tc",ogr.OgretmenTc)
+                };
 
                 Helper hlp = new Helper();
-                return hlp.ExecuteNonQuery("Update tblOgretmenler set OgretmenAdi=@Ad,OgretmenSoyadi=@Soyad,OgretmenId=@Id where OgretmenTc=@Tc", p) > 0;
+                return hlp.ExecuteNonQuery("Update tblOgretmenler set OgretmenAdi=@Ad,OgretmenSoyadi=@Soyad where OgretmenTc=@Tc", p) > 0;
             }
             catch (Exception ex)
             {
-                throw new Exception("UYARI! Hata: " + ex.Message, ex);
+                throw new Exception("Hata: " + ex);
             }
         }
     }

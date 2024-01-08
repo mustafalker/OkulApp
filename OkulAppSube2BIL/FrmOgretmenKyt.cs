@@ -23,12 +23,11 @@ namespace OkulAppSube2BIL
                 var ogrtmn = new OgretmenBL();
                 bool sonuc = ogrtmn.OgretmenKaydet(new Ogretmen
                 {
-                    OgretmenTc = txtTc.Text.Trim(),
                     OgretmenAdi = txtAd.Text.Trim(),
                     OgretmenSoyadi = txtSoyad.Text.Trim(),
-
+                    OgretmenTc = txtTc.Text.Trim()
                 }
-                    );
+                );
                 if (sonuc)
                 {
                     MessageBox.Show("Yeni kayıt eklendi!");
@@ -49,9 +48,9 @@ namespace OkulAppSube2BIL
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("bilinmeyen hata");
+                MessageBox.Show("Hata: " + ex);
             }
         }
 

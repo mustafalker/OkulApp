@@ -59,21 +59,21 @@
             // 
             // txtSoyad
             // 
-            this.txtSoyad.Location = new System.Drawing.Point(153, 126);
+            this.txtSoyad.Location = new System.Drawing.Point(153, 83);
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(100, 20);
             this.txtSoyad.TabIndex = 6;
             // 
             // txtAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(153, 97);
+            this.txtAd.Location = new System.Drawing.Point(153, 35);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(100, 20);
             this.txtAd.TabIndex = 5;
             // 
             // txtTc
             // 
-            this.txtTc.Location = new System.Drawing.Point(153, 66);
+            this.txtTc.Location = new System.Drawing.Point(153, 135);
             this.txtTc.Name = "txtTc";
             this.txtTc.Size = new System.Drawing.Size(100, 20);
             this.txtTc.TabIndex = 4;
@@ -81,7 +81,7 @@
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(48, 133);
+            this.lblSurname.Location = new System.Drawing.Point(48, 90);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(37, 13);
             this.lblSurname.TabIndex = 2;
@@ -90,7 +90,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(48, 100);
+            this.lblName.Location = new System.Drawing.Point(48, 35);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(20, 13);
             this.lblName.TabIndex = 1;
@@ -99,7 +99,7 @@
             // lblTc
             // 
             this.lblTc.AutoSize = true;
-            this.lblTc.Location = new System.Drawing.Point(48, 66);
+            this.lblTc.Location = new System.Drawing.Point(48, 142);
             this.lblTc.Name = "lblTc";
             this.lblTc.Size = new System.Drawing.Size(37, 13);
             this.lblTc.TabIndex = 0;

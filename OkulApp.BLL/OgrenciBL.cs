@@ -50,14 +50,11 @@ namespace OkulApp.BLL
                 dr.Close();
                 return ogr;
             }
-
             catch (Exception ex)
             {
 
                 throw new Exception("Hata: " + ex);
             }
-
-
         }
         public bool OgrenciSil(int Ogrenciid)
         {
@@ -74,13 +71,7 @@ namespace OkulApp.BLL
             {
                 throw new Exception("UYARI! Hata: " + ex.Message, ex);
             }
-            finally
-            {
-            }
         }
-
-
-
         public bool OgrenciGuncelle(Ogrenci ogr)
         {
             try
@@ -95,7 +86,7 @@ namespace OkulApp.BLL
             }
             catch (Exception ex)
             {
-                throw new Exception("UYARI! Hata: " + ex.Message, ex);
+                throw new Exception("Hata: " + ex);
             }
         }
     }
